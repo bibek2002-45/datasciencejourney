@@ -15,6 +15,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 df=pd.read_csv("User_Data.csv")
 x=df[["EstimatedSalary"]]
 y=df["Purchased"]
@@ -28,3 +29,4 @@ accracy=accuracy_score(y_test,predictions)
 print(accracy)
 cm=confusion_matrix(y_test,predictions)
 print(cm)
+print(classification_report(y_test,predictions))
