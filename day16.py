@@ -10,23 +10,45 @@
 # probablity=model.predict_proba([[1000]])
 # print(prediction,probablity)
 
-import pandas as pd
+# import pandas as pd
+# from sklearn.linear_model import LogisticRegression
+# from sklearn.model_selection import train_test_split
+# from sklearn.metrics import accuracy_score
+# from sklearn.metrics import confusion_matrix
+# from sklearn.metrics import classification_report
+# df=pd.read_csv("User_Data.csv")
+# x=df[["EstimatedSalary"]]
+# y=df["Purchased"]
+# x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
+# model=LogisticRegression()
+# model.fit(x_train,y_train)
+# predictions=model.predict(x_test)
+# print(x_test,predictions)
+# print(x.shape,y.shape)
+# accracy=accuracy_score(y_test,predictions)
+# print(accracy)
+# cm=confusion_matrix(y_test,predictions)
+# print(cm)
+# print(classification_report(y_test,predictions))
+
+#### student marks prediction system
+
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
+import numpy as np
 from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
-df=pd.read_csv("User_Data.csv")
-x=df[["EstimatedSalary"]]
-y=df["Purchased"]
+from sklearn.model_selection import train_test_split
+#result=int(input("enter study hours:"))
+x=np.array([[2],[3],[4],[5],[6],[10]])
+y=np.array([1,0,0,0,1,1])
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
 model=LogisticRegression()
 model.fit(x_train,y_train)
-predictions=model.predict(x_test)
-print(x_test,predictions)
-print(x.shape,y.shape)
-accracy=accuracy_score(y_test,predictions)
-print(accracy)
-cm=confusion_matrix(y_test,predictions)
-print(cm)
-print(classification_report(y_test,predictions))
+test_prediction=model.predict(x_test)
+print(test_prediction)
+# prediction=model.predict([[result]])
+# print(prediction)
+accuracy=accuracy_score(y_test,test_prediction)
+print(accuracy)
+print(y_test)
+print(x_test)
