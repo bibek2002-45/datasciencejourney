@@ -91,6 +91,8 @@
 
 from sklearn.tree import DecisionTreeClassifier
 import pandas as pd
+from sklearn.tree import plot_tree
+import matplotlib.pyplot as plt
 data={
     "Marks":[60,75,85,50,95],
     "Attendence":[70,80,90,65,95],
@@ -110,3 +112,12 @@ if prediction[0]==1:
     print("student can get admission")
 else:
     print("student cant get admission")
+plt.figure(figsize=(8,6))
+plot_tree(
+    model,
+    feature_names=["Marks", "Attendance"],
+    class_names=["No Admission", "Admission"],
+    filled=True
+)
+
+plt.show()
